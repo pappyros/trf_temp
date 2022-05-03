@@ -1,9 +1,9 @@
 
-# ##ssh-keygen -t rsa -b 4096 -C "hsj5009@lgcns.com" -f "$HOME/.ssh/web_admin" -N ""
-# resource "aws_key_pair" "web_admin123" {
-#   key_name = "web_admin123"
-#   public_key = file("~/.ssh/web_admin.pub")
-# }
+##ssh-keygen -t rsa -b 4096 -C "hsj5009@lgcns.com" -f "$HOME/.ssh/web_admin" -N ""
+resource "aws_key_pair" "web_admin123" {
+  key_name = "web_admin123"
+  public_key = file("~/.ssh/web_admin.pub")
+}
 
 resource "aws_security_group" "ssh" {
   name = "Lohan_test_sg"
