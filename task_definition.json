@@ -1,0 +1,22 @@
+[
+  {
+      "name": "lohan-private-node",
+     "image": "151564769076.dkr.ecr.ap-northeast-2.amazonaws.com/lohan-private-node:latest",
+      "cpu": 100,
+      "memory": 512,
+      "links": [],
+      "portMappings": [
+          {
+              "hostPort": 3000,
+              "containerPort": 3000,
+              "protocol": "tcp"
+          }
+      ],
+      "essential": true,
+      "entryPoint": [],
+      "command": [],
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": []
+  }
+]
