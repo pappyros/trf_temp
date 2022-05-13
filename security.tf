@@ -139,89 +139,6 @@ resource "aws_security_group" "Lohan_web_sg" {
   }
 }
 
-#############################################################################################################
-
-######################
-# VPC Endpoint for SSM
-######################
-
-resource "aws_vpc_endpoint" "Lohan_ssm" {
-
-  vpc_id            = aws_vpc.Lohan_vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ssm"#"${data.aws_vpc_endpoint_service.ssm.service_name}"
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids  = [aws_security_group.Lohan_ssm_sg.id]
-  subnet_ids          = [aws_subnet.Lohan_private_1.id, aws_subnet.Lohan_private_2.id]
-  private_dns_enabled = true
-}
-
-
-###############################
-# VPC Endpoint for SSMMESSAGES
-###############################
-
-resource "aws_vpc_endpoint" "Lohan_ssmmessages" {
-
-  vpc_id            = aws_vpc.Lohan_vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ssmmessages"
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids  = [aws_security_group.Lohan_ssm_sg.id]
-  subnet_ids          = [aws_subnet.Lohan_private_1.id, aws_subnet.Lohan_private_2.id]
-  private_dns_enabled = true
-}
-
-
-###############################
-# VPC Endpoint for EC2 MESSAGES
-###############################
-
-resource "aws_vpc_endpoint" "Lohan_ec2messages" {
-
-  vpc_id            = aws_vpc.Lohan_vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ec2messages"
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids  = [aws_security_group.Lohan_ssm_sg.id]
-  subnet_ids          = [aws_subnet.Lohan_private_1.id, aws_subnet.Lohan_private_2.id]
-  private_dns_enabled = true
-}
-
-
-
-###############################
-# VPC Endpoint for ECR.API
-###############################
-
-resource "aws_vpc_endpoint" "Lohan_ecrapi" {
-
-  vpc_id            = aws_vpc.Lohan_vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ecr.api"
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids  = [aws_security_group.Lohan_ecr_sg.id]
-  subnet_ids          = [aws_subnet.Lohan_private_1.id, aws_subnet.Lohan_private_2.id]
-  private_dns_enabled = true
-}
-
-
-###############################
-# VPC Endpoint for ECR.dkr
-###############################
-
-resource "aws_vpc_endpoint" "Lohan_ecrdkr" {
-
-  vpc_id            = aws_vpc.Lohan_vpc.id
-  service_name      = "com.amazonaws.ap-northeast-2.ecr.dkr"
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids  = [aws_security_group.Lohan_ecr_sg.id]
-  subnet_ids          = [aws_subnet.Lohan_private_1.id, aws_subnet.Lohan_private_2.id]
-  private_dns_enabled = true
-}
-
-#################################################################################################
 
 ######################
 # ECS SECURITY GROUP
@@ -246,3 +163,6 @@ resource "aws_security_group" "Lohan_ecs_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 }
+
+
+
