@@ -20,5 +20,5 @@ resource "aws_db_instance" "Lohan_rds_1" {
   db_subnet_group_name = aws_db_subnet_group.Lohan_db_subnet_group.name
   vpc_security_group_ids = [aws_security_group.Lohan_rds_sg.id]
   skip_final_snapshot  = true
-  multi_az = var.multi_az
+  # multi_az = var.multi_az
 }

@@ -57,34 +57,34 @@
 ####################################################################
 
 
-resource "aws_instance" "Lohan_WEB_1" {
-  ami = "ami-09cc348a89b148946"
-  iam_instance_profile = "Lohan-ssm-ec2"
-  instance_type = "t2.micro"
-  key_name = "Lohan-ssh-key"
-  vpc_security_group_ids = [
-    aws_security_group.Lohan_web_sg.id
-  ]
-  subnet_id = aws_subnet.Lohan_private_1.id
-  #associate_public_ip_address = true
-    tags = {
-    Name = "Lohan_WEB_1"
-    user = "s2s_Lohan"
-  }
-}
+# resource "aws_instance" "Lohan_WEB_1" {
+#   ami = var.web_ami
+#   iam_instance_profile = "Lohan-ssm-ec2"
+#   instance_type = "t2.micro"
+#   key_name = "Lohan-ssh-key"
+#   vpc_security_group_ids = [
+#     aws_security_group.Lohan_web_sg.id
+#   ]
+#   subnet_id = aws_subnet.Lohan_private_1.id
+#   #associate_public_ip_address = true
+#     tags = {
+#     Name = "Lohan_WEB_1"
+#     user = "s2s_Lohan"
+#   }
+# }
 
-resource "aws_instance" "Lohan_WEB_2" {
-  ami = "ami-09cc348a89b148946"
-  iam_instance_profile = "Lohan-ssm-ec2"
-  instance_type = "t2.micro"
-  key_name = "Lohan-ssh-key"
-  vpc_security_group_ids = [
-    aws_security_group.Lohan_web_sg.id
-  ]
-  subnet_id = aws_subnet.Lohan_private_2.id
-  #associate_public_ip_address = true
-    tags = {
-    Name = "Lohan_WEB_2"
-    user = "s2s_Lohan"
-  }
-}
+# resource "aws_instance" "Lohan_WEB_2" {
+#   ami = var.web_ami
+#   iam_instance_profile = "Lohan-ssm-ec2"
+#   instance_type = "t2.micro"
+#   key_name = "Lohan-ssh-key"
+#   vpc_security_group_ids = [
+#     aws_security_group.Lohan_web_sg.id
+#   ]
+#   subnet_id = aws_subnet.Lohan_private_2.id
+#   #associate_public_ip_address = true
+#     tags = {
+#     Name = "Lohan_WEB_2"
+#     user = "s2s_Lohan"
+#   }
+# }

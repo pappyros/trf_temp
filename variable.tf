@@ -11,6 +11,16 @@ variable "region" {
   default = "ap-northeast-2"
 }
 
+variable "web_ami"{
+  type = string
+  default = "ami-012da4758547cd481"
+}
+
+variable "lohan_key"{
+  type = string
+  default = "Lohan-ssh-key"
+}
+
 
 variable "ecs_env_variables" {
   default = [
