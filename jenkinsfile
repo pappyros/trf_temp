@@ -95,18 +95,18 @@ pipeline {
         }
         /*************************************************************/
         /*********************** 3. "Infra Apply *************************/
-        stage("final") {
-            steps {
-                script {
-                    println("terraform apply")
-                       sh("""
-                        terraform apply  -auto-approve -no-color
-                        """)
+      //   stage("final") {
+      //       steps {
+      //           script {
+      //               println("terraform apply")
+      //                  sh("""
+      //                   terraform apply  -auto-approve -no-color
+      //                   """)
 
-                }
-            }
-        }
-        /*************************************************************/
+      //           }
+      //       }
+      //   }
+      //   /*************************************************************/
 
 
     }
