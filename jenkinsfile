@@ -63,7 +63,7 @@ pipeline {
                 // Source Checkout
                 cd /root/pipeline/infra
                 echo 'Clone'
-                git branch: 'master', credentialsId: 'credentail id', url: 'git repo에서 복사한 url'
+                git branch: 'feature/lohan-infra', credentialsId: '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', url: 'https://github.com/pappyros/trf_temp.git'
 
             }
         }
