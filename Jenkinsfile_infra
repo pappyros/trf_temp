@@ -45,15 +45,15 @@ pipeline {
         /*********************** 3. "Infra Apply *************************/
          stage("Infra Apply") {
              when {
-                expression {env.GIT_BRANCH == 'origin/feature/lohan-infra'}
+                expression {env.GIT_BRANCH == 'origin/main'}
             }
 
              steps {
                  script {
                      println("terraform apply")
-                        // sh("""
-                        //  terraform apply  -auto-approve -no-color
-                        //  """)
+                        sh("""
+                         terraform apply  -auto-approve -no-color
+                         """)
 
                  }
              }
