@@ -55,44 +55,60 @@
 // }
 
 pipeline {
-    agent any
+   agent any
 
-    stages {
-        stage("first") {
-            steps {
-                // Source Checkout
-                cd /root/pipeline/infra
-                echo 'Clone'
-                git branch: 'feature/lohan-infra', credentialsId: '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', url: 'https://github.com/pappyros/trf_temp.git'
+   stages {
+      stage("first") {
+         when {
+            expression {env.GIT_BRANCH == 'origin/feature/lohan-infra'}
+         }
+         steps {
+            sh 'echo "feature branch"'
+         }
+      }
+      stage("second") {
+         when {
+            expression {env.GIT_BRANCH == 'origin/main'}
+         }
+         steps {
+            sh 'echo "main branch"'
+         }
+      }
+            // steps {
 
-            }
-        }
+            //     // Source Checkout
+            //     cd /root/pipeline/infra
+            //     echo 'Clone'
+            //     git branch: 'feature/lohan-infra', credentialsId: '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', url: 'https://github.com/pappyros/trf_temp.git'
+
+            // }
+      //   }
 
         /*********************** 1. "Infra init *************************/
-        stage("second") {
-            steps {
-                script {
-                    println("terraform init")
-                       sh("""
-                        terraform init
-                        """)
+      //   stage("second") {
+      //       steps {
+      //           script {
+      //               println("terraform init")
+      //                  sh("""
+      //                   terraform init
+      //                   """)
 
-                }
-            }
-        }
+      //           }
+      //       }
+      //   }
         /*************************************************************/
         /*********************** 2. "Infra Plan *************************/
-        stage("third") {
-            steps {
-                script {
-                    println("terraform plan")
-                       sh("""
-                        terraform plan
-                        """)
+      //   stage("third") {
+      //       steps {
+      //           script {
+      //               println("terraform plan")
+      //                  sh("""
+      //                   terraform plan
+      //                   """)
 
-                }
-            }
-        }
+      //           }
+      //       }
+      //   }
         /*************************************************************/
         /*********************** 3. "Infra Apply *************************/
       //   stage("final") {
@@ -109,6 +125,6 @@ pipeline {
       //   /*************************************************************/
 
 
-    }
+   }
 
 }
