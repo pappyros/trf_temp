@@ -4,6 +4,13 @@ pipeline {
     stages {
         stage("Git Checkout") {
             steps {
+                script {
+                    println("change directory")
+                       sh("""
+                        cd /root/infra
+                        """)
+
+                }
                 // Source Checkout
                 checkout scm
             }
