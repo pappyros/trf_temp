@@ -34,9 +34,9 @@ pipeline {
             steps {
                 script {
                     println("terraform plan")
-                    //    sh("""
-                    //     terraform plan
-                    //     """)
+                       sh("""
+                        terraform plan
+                        """)
 
                 }
             }
