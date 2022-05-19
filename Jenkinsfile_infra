@@ -45,7 +45,7 @@ pipeline {
         /*********************** 3. "Infra Apply *************************/
          stage("Infra Apply") {
              when {
-                expression {env.GIT_BRANCH == 'origin/main'}
+                expression {env.GIT_BRANCH == 'origin/feature/lohan-infra'}
             }
 
              steps {
