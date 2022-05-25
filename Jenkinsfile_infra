@@ -31,6 +31,9 @@ pipeline {
         /*************************************************************/
         /*********************** 2. "Infra Plan *************************/
         stage("Infra Plan") {
+                         when {
+                expression {env.GIT_BRANCH == 'origin/feature/lohan-infra'}
+            }
             steps {
                 script {
                     println("terraform plan")
