@@ -49,7 +49,11 @@ resource "aws_ecs_task_definition" "lohan_task_definition" {
   cpu                      = "512"
   requires_compatibilities = ["FARGATE"]                                                                                       # Fargate or EC2
   task_role_arn            = aws_iam_role.ecs_task_execution_role.arn
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn                                                                # TASK running role
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+
+    depends_on = [
+      aws_db_instance.Lohan_rds_1
+  ]                                                            # TASK running role
 }
 
 data "template_file" "task_definition_json" {

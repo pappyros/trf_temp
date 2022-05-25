@@ -7,6 +7,10 @@ resource "aws_lb" "lohan_web_loadbalancer" {
   name                = "lohan-web-lb"
   subnets             = [aws_subnet.Lohan_public_1.id, aws_subnet.Lohan_public_2.id]
   security_groups     = [aws_security_group.Lohan_weblb_sg.id] #CHANGE THIS
+
+      tags = {
+    Name = "Lohan_WEB_ALB"
+  }
 }
 
 

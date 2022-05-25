@@ -21,4 +21,8 @@ resource "aws_db_instance" "Lohan_rds_1" {
   vpc_security_group_ids = [aws_security_group.Lohan_rds_sg.id]
   skip_final_snapshot  = true
   # multi_az = var.multi_az
+
+    tags = {
+    Name = "Lohan_RDS"
+  }
 }
