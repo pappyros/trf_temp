@@ -13,7 +13,7 @@ variable "region" {
 
 variable "web_ami"{
   type = string
-  default = "ami-0e363e8133519b6aa"
+  default = "ami-0596fc1e815d099d1"
 }
 
 variable "lohan_key"{
